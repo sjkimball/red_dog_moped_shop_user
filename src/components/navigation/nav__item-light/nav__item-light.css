@@ -1,0 +1,9 @@
+.nav__item-light {
+  background-color: #000;
+  grid-column: span 1;
+}
+
+.nav__item-light--selected {
+  background-color: #FF0202;
+  grid-column: span 1;
+}

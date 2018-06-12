@@ -1,6 +1,8 @@
 import React from 'react';
-import "./nav.css";
+import "../nav/nav.css";
 import NavItem from '../nav__item/nav__item.js';
+
+let categories =["cubs", "sox", "hawks", "bears", "bulls"];
 
 let makeItem = (...navName) => {
   return <NavItem label={navName[0]} key={navName[1]}/>
@@ -15,7 +17,7 @@ export default class Nav extends React.Component {
     return (
       <nav className="l-nav">
         <ul id="nav__list" className="nav__list">
-          {makeNavList(this.props.cats)}
+          {makeNavList(categories)}
         </ul>
       </nav>
     )
