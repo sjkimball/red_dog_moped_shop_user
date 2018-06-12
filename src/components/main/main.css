@@ -1,0 +1,41 @@
+.main {
+  grid-area: main;
+  padding-right: 2rem;
+}
+
+.main__container, .main__container--bikes, .main__container--parts, .main__container--service, .main__container--rescue, .main__container--army {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto 2fr;
+  grid-gap: 1rem 1rem;
+  grid-template-areas:
+    "main__header main__header main__header main__header"
+    "main__supporting main__supporting main__supporting main__supporting";
+}
+
+.main__container--bikes, .main__container--parts, .main__container--service, .main__container--rescue, .main__container--army {
+  padding: 0 2rem 2rem 2rem;
+}
+
+.main__header {
+  grid-area: main__header;
+}
+
+.main__heading, .main__subheading, .main__progress {
+  grid-column: 1 / span 4;
+  // grid-row: 1;
+}
+
+.main__heading {
+  grid-area: main-heading;
+  font-family: "prohibition";
+  font-size: 2rem;
+  margin-bottom: .5rem;
+}
+
+.main__subheading {
+  grid-area: main-supporting;
+  font-family: "industry";
+  font-weight: 600;
+  margin-bottom: 0;
+}
