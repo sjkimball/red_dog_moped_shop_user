@@ -1,0 +1,19 @@
+button {
+  color: white;
+}
+
+.btn {
+  font-family: "prohibition";
+}
+
+.btn-dark {
+  background-color: $black-dog;
+}
+
+.btn-danger {
+  /* background-color: $red-dog; */
+}
+
+.disabled {
+  color: $grey-dog;
+}
