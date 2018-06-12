@@ -6,6 +6,10 @@ module.exports = {
         {
           rel: 'stylesheet',
           href: 'https://use.typekit.net/ius6gqc.css'
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css'
         }
       ]
     }
@@ -15,5 +19,5 @@ module.exports = {
       base: '"Industry", sans-serif'
     }
   },
-  components: 'src/components/**/**/*.js'
+  components: 'src/components/**/**/**/*.js'
 };
