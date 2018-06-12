@@ -4,24 +4,17 @@
   grid-column-gap: .5rem;
 }
 
-.nav__item-label, .nav__item-light {
-  background-color: #000;
-  grid-column: span 1;
-}
-
-.nav__item-light--selected {
-  background-color: #FF0202;
-  grid-column: span 1;
-}
-
 .nav__item-label {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: #000;
+  grid-column: span 1;
   padding-left: 2rem;
 }
 
 .nav__item-label p {
+  display: inline-block;
   font-family: "Prohibition", sans-serif;
   font-size: 4rem;
   color: white;
