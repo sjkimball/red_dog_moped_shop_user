@@ -2,12 +2,12 @@ import React from 'react';
 import "./nav.css";
 import NavItem from '../nav__item/nav__item.js';
 
-let makeItem = (props) => {
-  return <NavItem label={props}/>
+let makeItem = (...navName) => {
+  return <NavItem label={navName[0]} key={navName[1]}/>
 }
 
 let makeNavList = (cats) => {
-    return cats.map(item => makeItem(item));
+    return cats.map((item, index) => makeItem(item, index));
 }
 
 export default class Nav extends React.Component {
