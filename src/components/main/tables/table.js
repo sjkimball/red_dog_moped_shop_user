@@ -28,9 +28,9 @@ class PrimaryTable extends React.Component {
 
   render() {
     const { bikes } = this.state;
-    // let bikesData = this.state.bikes;
-    //
-    // console.log("What?", bikesData);
+    let bikesData = this.state.bikes;
+
+    console.log("What?", bikesData);
     //
     // bikesData.forEach(bike => {
     //   console.log(bike.make);
@@ -57,10 +57,28 @@ class PrimaryTable extends React.Component {
                   accessor: "model"
                 }
               ]
+            },
+            {
+              Header: "Customer Info",
+              columns: [
+                {
+                  Header: "Name",
+                },
+                {
+                  Header: "Street Address",
+                },
+                {
+                  Header: "Email Address",
+                },
+                {
+                  Header: "Phone",
+                }
+              ]
             }
           ]}
             defaultPageSize={10}
             className="-striped -highlight"
+            showPagination = {true}
           />
     );
   }
