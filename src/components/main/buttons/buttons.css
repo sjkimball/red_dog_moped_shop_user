@@ -7,11 +7,19 @@ button {
 }
 
 .btn-dark {
-  background-color: $black-dog;
+  border: none;
+  background-color: #000;
 }
 
 .btn-danger {
-  /* background-color: $red-dog; */
+  border: none;
+  background-color: #FF0202;
+}
+
+.btn-secondary {
+  border: none;
+  color: #000;
+  background-color: #BFBFBF;
 }
 
 .disabled {

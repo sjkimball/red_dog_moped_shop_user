@@ -1,8 +1,6 @@
 import React from 'react';
 import './main.css';
 
-import {DeleteButton, EditButton} from './buttons/buttons.js';
-
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -17,8 +15,6 @@ class Main extends React.Component {
           <div className="main__header">
             <h3 className="main__heading">This is a test.</h3>
             <p className="main__subheading">This is also a test.</p>
-            <EditButton />
-            <button className="btn btn-primary">Test</button>
           </div>
         </div>
       </main>

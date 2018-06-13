@@ -1,18 +1,22 @@
 import React from 'react';
 import './buttons.css';
 
-export const DeleteButton = () => {
+const DeleteButton = () => {
   return (
-    <button className="btn btn-danger">
-      <a href="#" className="delete_bike">Delete</a>
-    </button>
+    <button id="delete_bike" className="btn btn-danger">Delete</button>
   );
 }
 
-export const EditButton = () => {
+const EditButton = () => {
   return (
-    <button className="btn btn-secondary">
-      <a href="#" className="edit_bike">Edit</a>
-    </button>
+    <button id="edit_bike" className="btn btn-secondary">Edit</button>
   );
 }
+
+const ServiceButton = () => {
+  return (
+    <button id="service_bike" className="btn btn-dark service_bike">Request Service</button>
+  )
+}
+
+export {DeleteButton, EditButton, ServiceButton};
