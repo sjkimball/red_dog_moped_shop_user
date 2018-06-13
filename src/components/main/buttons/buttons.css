@@ -1,0 +1,27 @@
+button {
+  color: white;
+}
+
+.btn {
+  font-family: "prohibition";
+}
+
+.btn-dark {
+  border: none;
+  background-color: #000;
+}
+
+.btn-danger {
+  border: none;
+  background-color: #FF0202;
+}
+
+.btn-secondary {
+  border: none;
+  color: #000;
+  background-color: #BFBFBF;
+}
+
+.disabled {
+  color: $grey-dog;
+}
