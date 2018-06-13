@@ -25,9 +25,9 @@ class PrimaryTable extends React.Component {
   }
 
   render() {
-    console.log("When?", this.state.bikes);
-    let bike = this.state.bikes[0];
-    console.log("What?", bike);
+    // console.log("When?", this.state.bikes);
+    // let bike = this.state.bikes[0];
+    // console.log("What?", bike);
     return (
       <table className="table">
         <thead>
