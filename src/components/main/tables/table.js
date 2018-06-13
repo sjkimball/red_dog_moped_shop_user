@@ -11,6 +11,7 @@ class PrimaryTable extends React.Component {
     super(props);
     this.state = {
       bikes: [],
+      repairs: [],
       loading: true
     };
   }
@@ -24,12 +25,23 @@ class PrimaryTable extends React.Component {
         this.setState({ loading: false });
       }
     });
+
+    this.ref = base.syncState('repairs', {
+      context: this,
+      state: 'repairs',
+      asArray: true,
+      then() {
+        this.setState({ loading: false });
+      }
+    });
   }
 
   render() {
     const { bikes } = this.state;
     let bikesData = this.state.bikes;
+    let repairData = this.state.repairs;
 
+    console.log("What now?", repairData);
     console.log("What?", bikesData);
     //
     // bikesData.forEach(bike => {
@@ -42,7 +54,7 @@ class PrimaryTable extends React.Component {
           data={bikes}
           columns = {[
             {
-              Header: "Bike Info",
+              Header: "Awaiting Triage",
               columns: [
                 {
                   Header: "Year",
@@ -55,23 +67,6 @@ class PrimaryTable extends React.Component {
                 {
                   Header: "Model",
                   accessor: "model"
-                }
-              ]
-            },
-            {
-              Header: "Customer Info",
-              columns: [
-                {
-                  Header: "Name",
-                },
-                {
-                  Header: "Street Address",
-                },
-                {
-                  Header: "Email Address",
-                },
-                {
-                  Header: "Phone",
                 }
               ]
             }

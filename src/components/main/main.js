@@ -15,8 +15,8 @@ class Main extends React.Component {
       <main id="main_content" className="main">
         <div className="main__container">
           <div className="main__header">
-            <h3 className="main__heading">This is a test.</h3>
-            <p className="main__subheading">This is also a test.</p>
+            <h3 className="main__heading">Hey there.</h3>
+            <p className="main__subheading">Here's what the queue looks like.</p>
             <PrimaryTable/>
           </div>
         </div>
