@@ -1,0 +1,40 @@
+.main__header--black {
+  grid-area: main__header;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 1rem 1rem;
+  background-color: black;
+  color: white;
+}
+
+.main__heading--white {
+  grid-column: 1 / span 3;
+}
+
+.main__subheading--white {
+  grid-column: 1 / span 3;
+}
+
+.main__header-pic, .main__header-qrcode {
+  height: 5rem;
+  margin: 1rem;
+  color: black;
+  background-color: white;
+}
+
+.main__header-pic {
+  grid-column: 1 / span 2;
+}
+
+.main__header-qrcode {
+  grid-column: 3 / span 2;
+}
+
+.main__supporting--repair {
+  grid-area: main__supporting;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 1rem 1rem;
+}
