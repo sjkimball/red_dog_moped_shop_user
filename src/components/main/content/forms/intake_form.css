@@ -1,0 +1,30 @@
+.supporting__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "intake inprogress";
+  grid-gap: 1rem 1rem;
+}
+
+.supporting__form--left {
+  grid-area: intake;
+}
+
+.supporting__form--right {
+  grid-area: inprogress;
+}
+
+.form__repair-status {
+
+}
+
+.btn-dark {
+  border: none;
+  background-color: #000;
+  margin-right: .5rem;
+}
+
+/* .hidden {
+  display: none;
+} */

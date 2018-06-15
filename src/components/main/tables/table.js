@@ -37,39 +37,46 @@ class PrimaryTable extends React.Component {
   }
 
   render() {
-    const { bikes } = this.state;
-    let bikesData = this.state.bikes;
-    let repairData = this.state.repairs;
-
-    console.log("What now?", repairData);
-    console.log("What?", bikesData);
+    const { repairs } = this.state;
 
     return (
         <ReactTable
-          data={bikes}
+          data={repairs}
           columns = {[
             {
               Header: "Awaiting Triage",
               columns: [
                 {
-                  Header: "Year",
-                  accessor: "year"
+                  Header: "Repair ID",
+                  accessor: "repair_Id"
                 },
                 {
-                  Header: "Make",
-                  accessor: "make"
+                  Header: "Bike ID",
+                  accessor: "bike_Id"
                 },
                 {
-                  Header: "Model",
-                  accessor: "model"
+                  Header: "User Id",
+                  accessor: "uid"
                 }
               ]
             }
           ]}
-            defaultPageSize={10}
-            className="-striped -highlight"
-            showPagination = {true}
-          />
+          getTdProps={(state, rowInfo, column, instance) => {
+            return {
+              onMouseEnter: e =>
+                console.log("Cell - onMouseEnter", {
+                  state,
+                  rowInfo,
+                  column,
+                  instance,
+                  event: e
+                })
+            };
+          }}
+          defaultPageSize={10}
+          className="-striped -highlight"
+          showPagination = {true}
+        />
     );
   }
 }
