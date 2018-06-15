@@ -1,6 +1,9 @@
 import React from 'react';
 import './main.css';
 
+// import PrimaryTable from './tables/table.js';
+import BikeDetails from './content/bike_details.js';
+
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -11,12 +14,8 @@ class Main extends React.Component {
   render() {
     return(
       <main id="main_content" className="main">
-        <div className="main__container">
-          <div className="main__header">
-            <h3 className="main__heading">This is a test.</h3>
-            <p className="main__subheading">This is also a test.</p>
-          </div>
-        </div>
+          {/* <PrimaryTable/> */}
+          <BikeDetails />
       </main>
     );
   }

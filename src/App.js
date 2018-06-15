@@ -8,6 +8,7 @@ import './App.css';
 let categories = ["today", "rescue", "queue", "bikes", "parts"];
 
 class App extends Component {
+
   render() {
     return (
       <div className="l-container">

@@ -1,0 +1,69 @@
+.main__header--black {
+  grid-area: main__header;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 1rem 1rem;
+  background-color: black;
+  color: white;
+}
+
+.main__headings {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+.main__heading--white {
+  grid-column: 1 / span 2;
+}
+
+.main__subheading--white {
+  grid-column: 1 / span 2;
+}
+
+.main__header-pic, .main__header-qrcode {
+  display: flex;
+  align-items: center;
+  color: white;
+  grid-row: 2;
+}
+
+.main__header-pic {
+  grid-column: 1 / span 2;
+  margin: 0 0 1rem 1rem;
+}
+
+.main__header-qrcode {
+  grid-column: 3 / span 2;
+  margin: 0 1rem 1rem 0;
+}
+
+.header__img--pic, .header__img--qrcode {
+  width: 100%;
+  object-fit: contain;
+}
+
+.main__supporting--repair {
+  grid-area: main__supporting;
+}
+
+.supporting__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "intake inprogress";
+  grid-gap: 1rem 1rem;
+}
+
+.supporting__form--left {
+  grid-area: intake;
+}
+
+.supporting__form--right {
+  grid-area: inprogress;
+}
+
+.form__repair-status {
+
+}
