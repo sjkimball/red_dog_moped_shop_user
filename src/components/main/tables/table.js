@@ -43,11 +43,6 @@ class PrimaryTable extends React.Component {
 
     console.log("What now?", repairData);
     console.log("What?", bikesData);
-    //
-    // bikesData.forEach(bike => {
-    //   console.log(bike.make);
-    //
-    // });
 
     return (
         <ReactTable
