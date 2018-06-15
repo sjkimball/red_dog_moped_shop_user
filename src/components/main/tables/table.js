@@ -41,7 +41,6 @@ class PrimaryTable extends React.Component {
  }
 
   render() {
-
     const repairs = this.state.repairs;
     const bikes = this.state.bikes;
     const repair_bikes = [];
