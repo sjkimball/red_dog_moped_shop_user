@@ -20,14 +20,19 @@ class BikeDetails extends React.Component {
       <div className="main__container">
 
       <div className="main__header--black">
-        <h3 className="main__heading--white">Sam Kimball</h3>
-        <p className="main__subheading--white">
-          1600 Pennsylvania Ave.
-          Washington, D.C.
-
-        </p>
-        <img src={diablo} alt="Indigan Diablo" className="main__header-pic" />
-        <img src={qrcode} alt="Sample QR Code" className="main__header-qrcode" />
+        <div className="main__headings">
+          <h3 className="main__heading--white">Sam Kimball</h3>
+          <p className="main__subheading--white">
+            1600 Pennsylvania Ave.
+            Washington, D.C.
+          </p>
+        </div>
+        <div className="main__header-pic">
+          <img src={diablo} alt="Indigan Diablo" className="header__img--pic"/>
+        </div>
+        <div className="main__header-qrcode">
+          <img src={qrcode} alt="Sample QR Code" className="header__img--qrcode" />
+        </div>
 
       </div>
 
