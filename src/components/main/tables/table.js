@@ -17,15 +17,6 @@ class PrimaryTable extends React.Component {
   }
 
   componentDidMount() {
-    this.ref = base.syncState('bikes', {
-      context: this,
-      state: 'bikes',
-      asArray: true,
-      then() {
-        this.setState({ loading: false });
-      }
-    });
-
     this.ref = base.syncState('repairs', {
       context: this,
       state: 'repairs',
@@ -34,10 +25,26 @@ class PrimaryTable extends React.Component {
         this.setState({ loading: false });
       }
     });
+
+    this.ref = base.syncState('bikes', {
+      context: this,
+      state: 'bikes',
+      asArray: true,
+      then() {
+        this.setState({ loading: false });
+      }
+    });
   }
 
+ getBikeRepairData = (aRay, twoRay) => {
+
+ }
+
   render() {
-    const { repairs } = this.state;
+
+    const repairs = this.state.repairs;
+    const bikes = this.state.bikes;
+    const repair_bikes = [];
 
     return (
         <ReactTable
