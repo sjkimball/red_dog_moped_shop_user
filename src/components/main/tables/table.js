@@ -7,11 +7,12 @@ import "react-table/react-table.css";
 import base from '../../../base.js'
 
 let getBikes = (bidAray) => {
+  console.log("This is what 'getBikes' gets", bidAray);
   let repairBikes = [];
   for (let i = 0; i < bidAray.length; i++) {
     base.fetch('bikes', {
       context: this,
-      asArray: true,
+      asArray: false,
       queries: {
         orderByChild: 'bike_Id',
         equalTo: `${bidAray[i]}`
@@ -57,10 +58,10 @@ class PrimaryTable extends React.Component {
   }
 
   render() {
+
     const bikes = this.state.bikes;
     const repairs = this.state.repairs;
-    console.log(bikes);
-    console.log(repairs);
+    console.log("bikes", bikes);
 
     return (
         <ReactTable
@@ -74,12 +75,12 @@ class PrimaryTable extends React.Component {
                   accessor: "bike_Id"
                 },
                 {
-                  Header: "Model",
-                  accessor: "model"
+                  Header: "Repair ID",
+                  accessor: "repair_Id"
                 },
                 {
-                  Header: "Year",
-                  accessor: "year"
+                  Header: "User ID",
+                  accessor: "uid"
                 }
               ]
             }
