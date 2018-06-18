@@ -11,13 +11,13 @@ let getBikes = (bidAray) => {
   for (let i = 0; i < bidAray.length; i++) {
     base.fetch('bikes', {
       context: this,
-      asArray: false,
+      asArray: true,
       queries: {
         orderByChild: 'bike_Id',
         equalTo: `${bidAray[i]}`
       }
     }).then((data) => {
-        console.log("Why", data);
+        console.log("What", data);
         repairBikes.push(data);
       })
     }
