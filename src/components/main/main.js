@@ -2,7 +2,7 @@ import React from 'react';
 import './main.css';
 
 // import PrimaryTable from './tables/table.js';
-import BikeDetails from './content/bike_details.js';
+import BikeDetails from './content/bike_details/bike_details.js';
 
 class Main extends React.Component {
   constructor(props) {

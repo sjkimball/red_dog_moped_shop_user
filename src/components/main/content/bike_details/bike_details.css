@@ -31,6 +31,7 @@
 .main__header-pic {
   grid-column: 1 / span 2;
   margin: 0 0 1rem 1rem;
+  background-color: #BFBFBF;
 }
 
 .main__header-qrcode {
@@ -45,25 +46,4 @@
 
 .main__supporting--repair {
   grid-area: main__supporting;
-}
-
-.supporting__form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas:
-    "intake inprogress";
-  grid-gap: 1rem 1rem;
-}
-
-.supporting__form--left {
-  grid-area: intake;
-}
-
-.supporting__form--right {
-  grid-area: inprogress;
-}
-
-.form__repair-status {
-
 }
