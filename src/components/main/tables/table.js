@@ -6,38 +6,52 @@ import "react-table/react-table.css";
 
 import base from '../../../base.js'
 
-let getBikes = (bidAray) => {
-  console.log("This is what 'getBikes' gets", bidAray);
-  let repairBikes = [];
-  for (let i = 0; i < bidAray.length; i++) {
-    base.fetch('bikes', {
-      context: this,
-      asArray: false,
-      queries: {
-        orderByChild: 'bike_Id',
-        equalTo: `${bidAray[i]}`
-      }
-    }).then((data) => {
-        console.log("What", data);
-        repairBikes.push(data);
-      })
-    }
-    console.log("test", repairBikes);
-    return repairBikes;
-}
+// let getBikes = (bidAray) => {
+//   let repairBikes = [];
+//   for (let i = 0; i < bidAray.length; i++) {
+//     base.fetch('bikes', {
+//       context: this,
+//       asArray: false,
+//       queries: {
+//         orderByChild: 'bike_Id',
+//         equalTo: `${bidAray[i]}`
+//       }
+//     }).then((data) => {
+//         console.log("What", data);
+//         repairBikes.push(data);
+//       })
+//     }
+//     console.log("test", repairBikes);
+//     return repairBikes;
+// }
 
-let getBikeIds = (aRay) => {
-  const bikeaRay = aRay.map(item => {
-    return item.bike_Id;
-  });
-  return bikeaRay;
-}
+// let getBikeIds = (aRay) => {
+//   const bikeaRay = aRay.map(item => {
+//     return item.bike_Id;
+//   });
+//   return bikeaRay;
+// }
 
 class PrimaryTable extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      bikes: [],
+      bikes: [
+        {
+          bike_Id: '-LF3ogHak1KXjlRrHtx7',
+          make: 'Chicago',
+          model: 'Steel',
+          nickname: 'The Tester',
+          year: '1979',
+          uid: 'VGimDuF6eggNl4C4BYkPGRJ7G102'
+        },
+        {
+          bike_Id: '987654321',
+          make: 'Honda',
+          model: 'Rocket',
+          year: '1980'
+        }
+      ],
       repairs: [],
       loading: true
     };
@@ -48,9 +62,8 @@ class PrimaryTable extends React.Component {
       context: this,
       state: 'repairs',
       asArray: true,
-      then() {
+      then(data) {
         this.setState({
-          bikes: getBikes(getBikeIds(this.state.repairs)),
           loading: false
          });
       }
@@ -61,11 +74,12 @@ class PrimaryTable extends React.Component {
 
     const bikes = this.state.bikes;
     const repairs = this.state.repairs;
-    console.log("bikes", bikes);
+    // console.log("bikes", bikes);
+    // console.log("repairs", repairs);
 
     return (
         <ReactTable
-          data={bikes}
+          data={repairs}
           columns = {[
             {
               Header: "Awaiting Triage",
@@ -79,8 +93,8 @@ class PrimaryTable extends React.Component {
                   accessor: "repair_Id"
                 },
                 {
-                  Header: "User ID",
-                  accessor: "uid"
+                  Header: "Issue",
+                  accessor: "issue"
                 }
               ]
             }
@@ -92,7 +106,6 @@ class PrimaryTable extends React.Component {
                   state,
                   rowInfo,
                   column,
-                  instance,
                   event: e
                 })
             };

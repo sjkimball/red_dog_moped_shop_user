@@ -5,9 +5,16 @@ class IntakeForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-
+      time: null,
+      cost: null,
+      comment: null,
+      here: false,
+      inq: false,
+      status: null,
+      rfp: false
     }
   }
+
   render(){
     return(
       <form className="supporting__form">
@@ -16,7 +23,7 @@ class IntakeForm extends React.Component {
 
           <div className="form-group">
             <label htmlFor="repair-issue">Issue:</label>
-            <textarea className="form-control" id="repair-issue" placeholder="Customer description" />
+            <textarea className="form-control" id="repair-issue" placeholder={this.props.issue} />
           </div>
           <div className="form-group">
             <label htmlFor="repair-time">Quoted Repair Time:</label>
