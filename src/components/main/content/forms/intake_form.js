@@ -15,7 +15,18 @@ class IntakeForm extends React.Component {
     }
   }
 
+  getFormData = () => {
+    let data = {
+      time: document.getElementById('repair-time').value,
+      cost: document.getElementById('repair-cost').value,
+      here: document.getElementById('bike-onsite').value,
+      inq: document.getElementById('add-queue').value
+    }
+    console.log(data);
+  }
+
   render(){
+
     return(
       <form className="supporting__form">
 
@@ -23,7 +34,7 @@ class IntakeForm extends React.Component {
 
           <div className="form-group">
             <label htmlFor="repair-issue">Issue:</label>
-            <textarea className="form-control" id="repair-issue" placeholder={this.props.issue} />
+            <textarea readOnly className="form-control" id="repair-issue" placeholder={this.props.issue} />
           </div>
           <div className="form-group">
             <label htmlFor="repair-time">Quoted Repair Time:</label>
@@ -34,14 +45,14 @@ class IntakeForm extends React.Component {
             <textarea className="form-control" id="repair-cost" placeholder="e.g. '$150'" />
           </div>
           <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="" id="bike-onsite" />
+            <input className="form-check-input" type="checkbox" value="false" id="bike-onsite" />
             <label className="form-check-label" htmlFor="bike-onsite">
               Bike Received?
             </label>
           </div>
           <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="true" id="bike-rfp" />
-            <label className="form-check-label" htmlFor="bike-rfp">
+            <input className="form-check-input" type="checkbox" value="false" id="add-queue" />
+            <label className="form-check-label" htmlFor="add-queue">
               Add to Repair Queue?
             </label>
           </div>
@@ -66,7 +77,7 @@ class IntakeForm extends React.Component {
                 <a className="dropdown-item" href="#">Pending</a>
               </div>
             </div>
-            <button type="button" className="btn btn-danger submit">
+            <button type="button" className="btn btn-danger submit" onClick={this.getFormData}>
               Submit
             </button>
           </div>
