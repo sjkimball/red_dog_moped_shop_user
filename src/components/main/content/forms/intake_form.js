@@ -15,14 +15,30 @@ class IntakeForm extends React.Component {
     }
   }
 
-  getFormData = () => {
-    let data = {
-      time: document.getElementById('repair-time').value,
-      cost: document.getElementById('repair-cost').value,
-      here: document.getElementById('bike-onsite').value,
-      inq: document.getElementById('add-queue').value
+  getTime = (event) => {
+    this.setState({
+      time: event.target.value
+    });
+  }
+
+  getCost = (event) => {
+    this.setState({
+      cost: event.target.value
+    })
+  }
+
+  bikeHere = () => {
+    this.setState({
+      here: !this.state.here
+    })
+  }
+
+  enableAdd2Q = () => {
+    if (this.state.time !== null && this.state.cost !== null && this.state.here == true) {
+      this.setState({
+        inq: true
+      })
     }
-    console.log(data);
   }
 
   render(){
@@ -38,20 +54,20 @@ class IntakeForm extends React.Component {
           </div>
           <div className="form-group">
             <label htmlFor="repair-time">Quoted Repair Time:</label>
-            <textarea className="form-control" id="repair-time" placeholder="e.g. '2 - 3 days'" />
+            <textarea id="repair-time" className="form-control" placeholder="e.g. '2 - 3 days'" onChange={this.getTime}/>
           </div>
           <div className="form-group">
             <label htmlFor="repair-cost">Quoted Repair Cost:</label>
-            <textarea className="form-control" id="repair-cost" placeholder="e.g. '$150'" />
+            <textarea id="repair-cost" className="form-control" placeholder="e.g. '$150'" onChange={this.getCost} />
           </div>
           <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="false" id="bike-onsite" />
+            <input id="bike-onsite" className="form-check-input" type="checkbox" value="false"  onChange={this.bikeHere}/>
             <label className="form-check-label" htmlFor="bike-onsite">
               Bike Received?
             </label>
           </div>
           <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="false" id="add-queue" />
+            <input className="form-check-input" type="checkbox" value="false" id="add-queue" disabled={!this.state.inq} />
             <label className="form-check-label" htmlFor="add-queue">
               Add to Repair Queue?
             </label>
