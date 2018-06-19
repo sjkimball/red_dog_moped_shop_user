@@ -42,6 +42,37 @@ class IntakeForm extends React.Component {
   }
 
   render(){
+    if (!this.state.inq) {
+      this.enableAdd2Q();
+    };
+
+    let secForm = null;
+    if (this.state.inq) {
+      secForm = <div className="supporting__form--right hidden">
+
+        <div className="form-group">
+          <label htmlFor="repair-cost">Add Repair comment</label>
+          <textarea className="form-control" id="repair-cost" placeholder="e.g. Replaced starter" />
+        </div>
+
+        <div className="form__repair-status">
+          <div className="btn-group">
+            <button type="button" className="btn btn-dark dropdown-toggle repair-status" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Repair Status
+            </button>
+            <div className="dropdown-menu">
+              <a className="dropdown-item" href="#">Awaiting Service</a>
+              <a className="dropdown-item" href="#">In Service</a>
+              <a className="dropdown-item" href="#">Pending</a>
+            </div>
+          </div>
+          <button type="button" className="btn btn-danger submit" onClick={this.getFormData}>
+            Submit
+          </button>
+        </div>
+
+      </div>;
+    };
 
     return(
       <form className="supporting__form">
@@ -75,30 +106,8 @@ class IntakeForm extends React.Component {
 
         </div>
 
-        <div className="supporting__form--right hidden">
+        {secForm}
 
-          <div className="form-group">
-            <label htmlFor="repair-cost">Add Repair comment</label>
-            <textarea className="form-control" id="repair-cost" placeholder="e.g. Replaced starter" />
-          </div>
-
-          <div className="form__repair-status">
-            <div className="btn-group">
-              <button type="button" className="btn btn-dark dropdown-toggle repair-status" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Repair Status
-              </button>
-              <div className="dropdown-menu">
-                <a className="dropdown-item" href="#">Awaiting Service</a>
-                <a className="dropdown-item" href="#">In Service</a>
-                <a className="dropdown-item" href="#">Pending</a>
-              </div>
-            </div>
-            <button type="button" className="btn btn-danger submit" onClick={this.getFormData}>
-              Submit
-            </button>
-          </div>
-
-        </div>
       </form>
     );
   }
