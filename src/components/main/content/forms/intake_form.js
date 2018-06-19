@@ -9,6 +9,7 @@ class IntakeForm extends React.Component {
       cost: null,
       comment: null,
       here: false,
+      secForm: false,
       inq: false,
       status: null,
       rfp: false
@@ -36,19 +37,20 @@ class IntakeForm extends React.Component {
   enableAdd2Q = () => {
     if (this.state.time !== null && this.state.cost !== null && this.state.here == true) {
       this.setState({
+        secForm: true,
         inq: true
       })
     }
   }
 
   render(){
-    if (!this.state.inq) {
+    if (!this.state.secForm) {
       this.enableAdd2Q();
-    };
+    }
 
-    let secForm = null;
-    if (this.state.inq) {
-      secForm = <div className="supporting__form--right hidden">
+    let secForm;
+    if (this.state.secForm) {
+      secForm = <div className="supporting__form--right">
 
         <div className="form-group">
           <label htmlFor="repair-cost">Add Repair comment</label>
@@ -98,7 +100,7 @@ class IntakeForm extends React.Component {
             </label>
           </div>
           <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="false" id="add-queue" disabled={!this.state.inq} />
+            <input className="form-check-input" type="checkbox" value="false" id="add-queue" disabled={!this.state.secForm} />
             <label className="form-check-label" htmlFor="add-queue">
               Add to Repair Queue?
             </label>
