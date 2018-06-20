@@ -113,7 +113,7 @@ class BikeDetails extends React.Component {
 
       <div className="main__supporting--repair">
 
-        <IntakeForm issue={repair.issue} />
+        <IntakeForm issue={repair.issue} repair={repair.repair_Id}/>
 
       </div>
 

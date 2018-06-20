@@ -82,7 +82,7 @@ class PrimaryTable extends React.Component {
           data={repairs}
           columns = {[
             {
-              Header: "Awaiting Triage",
+              Header: "Repair Queue",
               columns: [
                 {
                   Header: "Bike ID",

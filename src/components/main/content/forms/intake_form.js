@@ -1,5 +1,8 @@
 import React from 'react';
 import './intake_form.css';
+import '../../buttons/buttons.css';
+
+import base from '../../../../base.js';
 
 class IntakeForm extends React.Component {
   constructor(props){
@@ -10,9 +13,8 @@ class IntakeForm extends React.Component {
       comment: null,
       here: false,
       secForm: false,
-      inq: false,
-      status: null,
-      rfp: false
+      in_queue: false,
+      status: null
     }
   }
 
@@ -35,15 +37,41 @@ class IntakeForm extends React.Component {
   }
 
   enableAdd2Q = () => {
-    if (this.state.time !== null && this.state.cost !== null && this.state.here == true) {
+    if (this.state.time !== null && this.state.cost !== null && this.state.here === true) {
       this.setState({
         secForm: true,
-        inq: true
+        in_queue: true
       })
     }
   }
 
+  getComment = (event) => {
+    this.setState({
+      comment: event.target.value
+    })
+  }
+
+  handleSubmit = () => {
+    if (this.state.time !== null && this.state.cost !== null && this.state.here === true && this.state.comment !== null) {
+      base.update(`repairs/${this.props.repair}`, {
+        data:
+          {
+            time: this.state.time,
+            cost: this.state.cost,
+            comment: this.state.comment,
+            here: this.state.here,
+            in_queue: this.state.in_queue,
+            status: this.state.status
+          },
+          then(data){
+          console.log(data);
+          }
+        });
+      }
+    }
+
   render(){
+
     if (!this.state.secForm) {
       this.enableAdd2Q();
     }
@@ -53,8 +81,8 @@ class IntakeForm extends React.Component {
       secForm = <div className="supporting__form--right">
 
         <div className="form-group">
-          <label htmlFor="repair-cost">Add Repair comment</label>
-          <textarea className="form-control" id="repair-cost" placeholder="e.g. Replaced starter" />
+          <label htmlFor="repair-comment">Add Repair comment</label>
+          <textarea id="repair-comment" className="form-control"  placeholder="e.g. Replaced starter" onChange={this.getComment}/>
         </div>
 
         <div className="form__repair-status">
@@ -63,12 +91,12 @@ class IntakeForm extends React.Component {
               Repair Status
             </button>
             <div className="dropdown-menu">
-              <a className="dropdown-item" href="#">Awaiting Service</a>
-              <a className="dropdown-item" href="#">In Service</a>
               <a className="dropdown-item" href="#">Pending</a>
+              <a className="dropdown-item" href="#">In Service</a>
+              <a className="dropdown-item" href="#">Ready for Pickup</a>
             </div>
           </div>
-          <button type="button" className="btn btn-danger submit" onClick={this.getFormData}>
+          <button type="button" className="btn btn-danger submit" onClick={this.handleSubmit}>
             Submit
           </button>
         </div>
@@ -86,23 +114,17 @@ class IntakeForm extends React.Component {
             <textarea readOnly className="form-control" id="repair-issue" placeholder={this.props.issue} />
           </div>
           <div className="form-group">
-            <label htmlFor="repair-time">Quoted Repair Time:</label>
+            <label htmlFor="repair-time">Estimated Repair Time:</label>
             <textarea id="repair-time" className="form-control" placeholder="e.g. '2 - 3 days'" onChange={this.getTime}/>
           </div>
           <div className="form-group">
-            <label htmlFor="repair-cost">Quoted Repair Cost:</label>
+            <label htmlFor="repair-cost">Estimated Repair Cost:</label>
             <textarea id="repair-cost" className="form-control" placeholder="e.g. '$150'" onChange={this.getCost} />
           </div>
           <div className="form-check">
             <input id="bike-onsite" className="form-check-input" type="checkbox" value="false"  onChange={this.bikeHere}/>
             <label className="form-check-label" htmlFor="bike-onsite">
               Bike Received?
-            </label>
-          </div>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="false" id="add-queue" disabled={!this.state.secForm} />
-            <label className="form-check-label" htmlFor="add-queue">
-              Add to Repair Queue?
             </label>
           </div>
 
