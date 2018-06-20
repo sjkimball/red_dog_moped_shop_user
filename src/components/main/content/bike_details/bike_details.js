@@ -2,7 +2,7 @@ import React from 'react';
 import './bike_details.css';
 
 import diablo from './../../../../images/Indigan-Diablo.jpg';
-import qrcode from './../../../../images/sampleqr.png';
+import qrcode from './../../../../images/frame.png';
 
 import base from '../../../../base.js';
 
@@ -31,7 +31,7 @@ class BikeDetails extends React.Component {
         equalTo: this.state.bike_Id
       },
       then(data) {
-        console.log("bike data", data);
+        // console.log("bike data", data);
         this.setState({
           bike: data,
         });
@@ -45,7 +45,7 @@ class BikeDetails extends React.Component {
         equalTo: this.state.uid
       },
       then(data) {
-        console.log("user data", data[0]);
+        // console.log("user data", data[0]);
         this.setState({
           user: data
         })
@@ -59,7 +59,7 @@ class BikeDetails extends React.Component {
         equalTo: this.state.repair_Id
       },
       then(data) {
-        console.log("repair data", data[0]);
+        // console.log("repair data", data[0]);
         this.setState({
           loading: false,
           repair: data
@@ -90,8 +90,6 @@ class BikeDetails extends React.Component {
     let user = this.getUser();
     let repair = this.getRepair();
 
-    console.log("Hello?", user);
-    console.log("Howdy?", repair);
     return(
       <div className="main__container">
 
@@ -115,7 +113,7 @@ class BikeDetails extends React.Component {
 
       <div className="main__supporting--repair">
 
-        <IntakeForm issue={repair.issue} />
+        <IntakeForm issue={repair.issue} repair={repair.repair_Id}/>
 
       </div>
 

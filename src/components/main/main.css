@@ -13,8 +13,8 @@
     "main__supporting main__supporting main__supporting main__supporting";
 }
 
-.main__container--bikes, .main__container--parts, .main__container--service, .main__container--rescue, .main__container--army {
-  padding: 0 2rem 2rem 2rem;
+.main__container, .main__container--bikes, .main__container--parts, .main__container--service, .main__container--rescue, .main__container--army {
+  padding: 0 2rem 4rem 2rem;
 }
 
 .main__header {
