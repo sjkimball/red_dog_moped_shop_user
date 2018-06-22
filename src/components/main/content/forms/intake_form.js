@@ -91,9 +91,9 @@ class IntakeForm extends React.Component {
               Repair Status
             </button>
             <div className="dropdown-menu">
-              <a className="dropdown-item" href="#">Pending</a>
-              <a className="dropdown-item" href="#">In Service</a>
-              <a className="dropdown-item" href="#">Ready for Pickup</a>
+              <a className="dropdown-item">Pending</a>
+              <a className="dropdown-item">In Service</a>
+              <a className="dropdown-item">Ready for Pickup</a>
             </div>
           </div>
           <button type="button" className="btn btn-danger submit" onClick={this.handleSubmit}>

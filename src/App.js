@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
 import Header from './components/header/header.js';
 import Nav from './components/navigation/nav/nav.js';
 import Main from './components/main/main.js';
@@ -11,11 +12,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="l-container">
-        <Header />
-        <Nav cats={categories} />
-        <Main />
-      </div>
+      <Router>
+        <div className="l-container">
+          <Header />
+          <Nav cats={categories} />
+          <Main />
+        </div>
+      </Router>
     );
   }
 }
