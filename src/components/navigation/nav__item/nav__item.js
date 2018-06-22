@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import NavItemLight from '../nav__item-light/nav__item-light.js'
 import './nav__item.css';
 
@@ -27,7 +28,7 @@ let NavItem = (props) => {
 
   return (
     <li id={itemID} className="nav__item" onClick={itemHighlight}>
-      <div className="nav__item-label"><p>{itemLabel}</p></div>
+      <NavLink to={"/" + itemID} activeStyle= {{textDecoration: 'none'}} className="nav__item-label"><p>{itemLabel}</p></NavLink>
       <NavItemLight />
       <NavItemLight />
       <NavItemLight />

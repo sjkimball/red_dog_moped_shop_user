@@ -1,8 +1,9 @@
 import React from 'react';
+import {Switch, Route} from 'react-router-dom';
 import './main.css';
 
-// import PrimaryTable from './tables/table.js';
-import BikeDetails from './content/bike_details/bike_details.js';
+import PrimaryTable from './tables/table.js';
+// import BikeDetails from './content/bike_details/bike_details.js';
 
 class Main extends React.Component {
   constructor(props) {
@@ -14,8 +15,10 @@ class Main extends React.Component {
   render() {
     return(
       <main id="main_content" className="main">
-          {/* <PrimaryTable/> */}
-          <BikeDetails />
+        <Switch>
+          <Route path="/queue" component={PrimaryTable} />
+          {/* <BikeDetails /> */}
+        </Switch>
       </main>
     );
   }
