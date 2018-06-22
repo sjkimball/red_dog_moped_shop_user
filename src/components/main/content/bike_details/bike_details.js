@@ -98,9 +98,13 @@ class BikeDetails extends React.Component {
           <h3 className="main__heading--white">{user.fullName}</h3>
           <p className="main__subheading--white">
             {user.address1}<br />
-            {user.address2}<br />
+            {/* {user.address2}<br /> */}
             {user.city}, {user.state} {user.postal}
           </p>
+        </div>
+        <div className="main__contact--white">
+          <p>{user.email}<br />
+          {user.phone}</p>
         </div>
         <div className="main__header-pic">
           <img src={diablo} alt="Indigan Diablo" className="header__img--pic"/>

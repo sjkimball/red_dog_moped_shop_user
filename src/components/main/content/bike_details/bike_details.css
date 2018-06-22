@@ -11,6 +11,8 @@
 .main__headings {
   grid-column: 1 / span 2;
   grid-row: 1;
+  padding-top: 1rem;
+  padding-left: 1rem;
 }
 
 .main__heading--white {
@@ -19,6 +21,13 @@
 
 .main__subheading--white {
   grid-column: 1 / span 2;
+}
+
+.main__contact--white {
+  grid-column: 3 / span 2;
+  text-align: right;
+  padding-top: 1rem;
+  padding-right: 1rem;
 }
 
 .main__header-pic, .main__header-qrcode {
