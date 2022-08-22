@@ -2,9 +2,9 @@ import React from 'react';
 // import Rebase from 're-base';
 import ReactTable from 'react-table';
 
-import "react-table/react-table.css";
+import 'react-table/react-table.css';
 
-import base from '../../../base.js'
+import base from '../../../base.js';
 
 // let getBikes = (bidAray) => {
 //   let repairBikes = [];
@@ -33,7 +33,7 @@ import base from '../../../base.js'
 // }
 
 class PrimaryTable extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       bikes: [
@@ -43,17 +43,17 @@ class PrimaryTable extends React.Component {
           model: 'Steel',
           nickname: 'The Tester',
           year: '1979',
-          uid: 'VGimDuF6eggNl4C4BYkPGRJ7G102'
+          uid: 'VGimDuF6eggNl4C4BYkPGRJ7G102',
         },
         {
           bike_Id: '987654321',
           make: 'Honda',
           model: 'Rocket',
-          year: '1980'
-        }
+          year: '1980',
+        },
       ],
       repairs: [],
-      loading: true
+      loading: true,
     };
   }
 
@@ -64,56 +64,55 @@ class PrimaryTable extends React.Component {
       asArray: true,
       then(data) {
         this.setState({
-          loading: false
-         });
-      }
+          loading: false,
+        });
+      },
     });
   }
 
   render() {
-
     const bikes = this.state.bikes;
     const repairs = this.state.repairs;
     // console.log("bikes", bikes);
     // console.log("repairs", repairs);
 
     return (
-        <ReactTable
-          data={repairs}
-          columns = {[
-            {
-              Header: "Repair Queue",
-              columns: [
-                {
-                  Header: "Bike ID",
-                  accessor: "bike_Id"
-                },
-                {
-                  Header: "Repair ID",
-                  accessor: "repair_Id"
-                },
-                {
-                  Header: "Issue",
-                  accessor: "issue"
-                }
-              ]
-            }
-          ]}
-          getTdProps={(state, rowInfo, column, instance) => {
-            return {
-              onMouseEnter: e =>
-                console.log("Cell - onMouseEnter", {
-                  state,
-                  rowInfo,
-                  column,
-                  event: e
-                })
-            };
-          }}
-          defaultPageSize={10}
-          className="-striped -highlight"
-          showPagination = {true}
-        />
+      <ReactTable
+        data={repairs}
+        columns={[
+          {
+            Header: 'Repair Queue',
+            columns: [
+              {
+                Header: 'Bike ID',
+                accessor: 'bike_Id',
+              },
+              {
+                Header: 'Repair ID',
+                accessor: 'repair_Id',
+              },
+              {
+                Header: 'Issue',
+                accessor: 'issue',
+              },
+            ],
+          },
+        ]}
+        getTdProps={(state, rowInfo, column, instance) => {
+          return {
+            onMouseEnter: (e) =>
+              console.log('Cell - onMouseEnter', {
+                state,
+                rowInfo,
+                column,
+                event: e,
+              }),
+          };
+        }}
+        defaultPageSize={10}
+        className="-striped -highlight"
+        showPagination={true}
+      />
     );
   }
 }
