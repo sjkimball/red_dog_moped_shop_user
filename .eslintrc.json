@@ -1,11 +1,7 @@
-{    
-    "env": {
-    	"browser": true
-    },
-    "extends": "airbnb",
-    "plugins": [
-    	"react",
-    	"jsx-a11y",
-    	"import"
-    ]
+{
+  "env": {
+    "browser": false
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  "plugins": ["jsx-a11y", "import"]
 }
